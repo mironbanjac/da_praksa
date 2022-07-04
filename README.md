@@ -1,6 +1,5 @@
 # da_praksa
 Praksa continued with Asada.
 
-Trenutno focus je clean up main.py - to je aplikacija. 
-Trebam segmentirati code is prebaciti vecinu body-ja u funkciju koja ce moci pozivati bilo koji table sa lokalne PostgreSQL baze.
-Trenutno Post i Get osnovni requesti rade sa FastAPI.
+Applikacija je zavrsena za obradu dataseta u skladu sa Task 1. Implementirani API requesti za tabelu osnovnih analizatora i tabelu frekvencije za individualne varijable.
+Trenutno se spaja automatski na lokalnu bazu, trenutno nema mogucnost promjene baze kojoj software pristupa.
