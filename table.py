@@ -27,19 +27,20 @@ def each_to_str(list):
 def mymean(column):
     return round(numpy.nanmean(column),2)
 
-def returnTable(tableName):
+def returnTable(tableName, host, database, user, password):
     #my local connection
     conn = psycopg2.connect(
-       host = "localhost",
-        database = "postgres",
-        user = "postgres",
-        password = "sq39iaiu")
+       host = host,
+        database = database,
+        user = user,
+        password = password)
 
     #my cursor
     cur = conn.cursor()
 
     #get my data
-    cur.execute("select * from public."+tableName)
+    #cur.execute("select * from public."+tableName)
+    cur.execute("select * from "+tableName)
 
     data = cur.fetchall()
 
@@ -84,20 +85,20 @@ def returnTable(tableName):
     text_file.close()
     return html
 
-def returnFreq(tableName, column):
+def returnFreq(tableName, column, host, database, user, password):
     #my local connection
     conn = psycopg2.connect(
-       host = "localhost",
-        database = "postgres",
-        user = "postgres",
-        password = "sq39iaiu")
+       host = host,
+        database = database,
+        user = user,
+        password = password)
 
     #my cursor
     cur = conn.cursor()
 
     #get my data
     cur.execute("select " +column+", count(*) from public."+tableName+" group by 1 order by 2 desc")
-
+    
     data = cur.fetchall()
 
     columns = []
